@@ -1,3 +1,5 @@
+import './Filter.css'
+
 function Filter() {
   return (
     <div className="app-block filter">

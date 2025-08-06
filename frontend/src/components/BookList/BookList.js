@@ -1,3 +1,5 @@
+import './BookList.css'
+
 function BookList() {
   return (
     <div className="app-block book-list">
