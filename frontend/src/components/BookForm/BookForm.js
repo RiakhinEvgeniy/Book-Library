@@ -10,8 +10,6 @@ function BookForm() {
         e.preventDefault()
 
         if(title && author) {
-            console.log(title, author);
-            
             setTitle('')
             setAuthor('')
         }

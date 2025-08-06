@@ -15,7 +15,7 @@ function App() {
         </div>
         <div className="app-right-column">
           <BookList />
-          {/* <Filter /> */}
+          <Filter />
         </div>
       </main>
     </div>
