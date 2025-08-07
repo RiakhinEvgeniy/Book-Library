@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid';
 import { ADD_BOOK } from '../../redux/books/actionCreaters'
 import './BookForm.css'
 
@@ -14,6 +15,7 @@ function BookForm() {
 
         if (title && author) {
             const book = {
+                id: uuidv4(),
                 title: title,
                 author: author
             }
