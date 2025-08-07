@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid';
-import { ADD_BOOK } from '../../redux/books/actionCreaters'
+import { addBook } from '../../redux/books/actionCreaters'
 import './BookForm.css'
 
 function BookForm() {
@@ -19,7 +19,7 @@ function BookForm() {
                 title: title,
                 author: author
             }
-            dispatch(ADD_BOOK(book))
+            dispatch(addBook(book))
             setTitle('')
             setAuthor('')
         }
