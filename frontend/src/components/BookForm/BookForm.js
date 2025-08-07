@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../../redux/books/actionCreaters'
+import booksDate from '../../data/books.json'
 import './BookForm.css'
 
 function BookForm() {
@@ -9,6 +10,18 @@ function BookForm() {
     const [title, setTitle] = useState('') // можно использовать объект, если нужно сохранять в сосотоянии много информации
     const [author, setAuthor] = useState('')
     const dispatch = useDispatch()
+
+    const handleAddRandomBook = () => {
+        const randomIndex = Math.floor(Math.random() * booksDate.length)
+        const randomBook = booksDate[randomIndex]
+
+        const randomBookWithId = {
+            ...randomBook,
+            id: uuidv4()
+        }
+
+        dispatch(addBook(randomBookWithId))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -37,6 +50,7 @@ function BookForm() {
                     <input type="text" id="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
                 </div>
                 <button type="submit">Add Book</button>
+                <button type="button" onClick={handleAddRandomBook}>Add Random</button>
             </form>
         </div>
     )
