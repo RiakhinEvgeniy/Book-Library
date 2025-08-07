@@ -1,15 +1,23 @@
 import { useState } from "react"
+import { useDispatch } from 'react-redux'
+import { ADD_BOOK } from '../../redux/books/actionCreaters'
 import './BookForm.css'
 
 function BookForm() {
 
     const [title, setTitle] = useState('') // можно использовать объект, если нужно сохранять в сосотоянии много информации
     const [author, setAuthor] = useState('')
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(title && author) {
+        if (title && author) {
+            const book = {
+                title: title,
+                author: author
+            }
+            dispatch(ADD_BOOK(book))
             setTitle('')
             setAuthor('')
         }
