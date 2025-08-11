@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
-import { addBook } from '../../redux/books/actionCreaters'
+import { addBook } from '../../redux/slices/booksSlice'
 import booksDate from '../../data/books.json'
 import './BookForm.css'
 import createBookWithId from "../../utils/createBookWithId"
@@ -24,7 +24,7 @@ function BookForm() {
         e.preventDefault()
 
         if (title && author) {
-            const book = createBookWithId({title, author})
+            const book = createBookWithId({ title, author })
             dispatch(addBook(book))
             setTitle('')
             setAuthor('')
