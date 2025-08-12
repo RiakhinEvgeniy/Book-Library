@@ -31,7 +31,7 @@ function BookForm() {
         }
     }
 
-    const hadleAddRandomBookViaAPI =  () => {
+    const hadleAddRandomBookViaAPI = () => {
         dispatch(thunkFunction)
     }
 
