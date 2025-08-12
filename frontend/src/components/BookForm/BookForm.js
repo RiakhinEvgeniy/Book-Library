@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
-import axios from 'axios'
-import { addBook } from '../../redux/slices/booksSlice'
+import { addBook, thunkFunction } from '../../redux/slices/booksSlice'
 import booksDate from '../../data/books.json'
 import './BookForm.css'
 import createBookWithId from "../../utils/createBookWithId"
@@ -32,15 +31,8 @@ function BookForm() {
         }
     }
 
-    const hadleAddRandomBookViaAPI = async () => {
-        try {
-            const res = await axios.get('http://localhost:4000/random-book')
-            if (res.data && res.data.title && res.data.author) {
-                dispatch(addBook(createBookWithId(res.data, 'API')))
-            }
-        } catch (error) {
-            console.log('Error fetching random book', error);
-        }
+    const hadleAddRandomBookViaAPI =  () => {
+        dispatch(thunkFunction)
     }
 
     return (
