@@ -39,15 +39,17 @@ const booksSlice = createSlice({
                     book.isFavorite = !book.isFavorite
                 }
             })
+
+            // вариант написания как в классическом подходе redux
             // return state.map((book) =>
             //     book.id === action.payload ?
             //         { ...book, isFavorite: !book.isFavorite }
             //         : book
-            // ) // вариант написания как в классическом подходе redux
+            // ) 
         }
     },
 
-
+    // Option 2
     // extraReducers: {
     //     [fetchBook.fulfilled]: (state, action) => {
     //         if (action.payload.title && action.payload.author) {
@@ -56,6 +58,7 @@ const booksSlice = createSlice({
     //     }
     // }
 
+    // Option 1
     extraReducers: (builder) => {
         builder.addCase(fetchBook.fulfilled, (state, action) => {
             if (action.payload.title && action.payload.author) {
