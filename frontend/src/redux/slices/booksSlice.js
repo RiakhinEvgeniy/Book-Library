@@ -11,7 +11,7 @@ export const fetchBook = createAsyncThunk(
         try {
             const res = await axios.get(url)
             return res.data
-        } catch (error) {            
+        } catch (error) {
             thunkAPI.dispatch(setError(error.message))
             throw error
         }
@@ -46,6 +46,15 @@ const booksSlice = createSlice({
             // ) // вариант написания как в классическом подходе redux
         }
     },
+
+
+    // extraReducers: {
+    //     [fetchBook.fulfilled]: (state, action) => {
+    //         if (action.payload.title && action.payload.author) {
+    //             state.push(createBookWithId(action.payload, 'API'))
+    //         }
+    //     }
+    // }
 
     extraReducers: (builder) => {
         builder.addCase(fetchBook.fulfilled, (state, action) => {
